@@ -62,7 +62,7 @@ make update
 git checkout ${GLUONBRANCH}
 make update
 
-  for TARGET in ar71xx-generic ar71xx-tiny ar71xx-nand brcm2708-bcm2708 brcm2708-bcm2709 mpc85xx-generic ramips-mt7621 x86-generic x86-geode x86-64; do
+  for TARGET in ar71xx-generic ar71xx-nand brcm2708-bcm2708 brcm2708-bcm2709 mpc85xx-generic x86-generic x86-kvm_guest x86-64 x86-xen_domu; do
     echo `date +%F-%H-%M` ${SITE} "start building target" ${TARGET} >> ${LOGFILE}
     make -j$CORES GLUON_TARGET=${TARGET} ${OPTIONS} || echo `date +%F-%H-%M` ${SITE} "Probeleme beim Kompilieren" >> ${LOGFILE} && exit 1
     #make V=s GLUON_TARGET=${TARGET} ${OPTIONS} || echo `date +%F-%H-%M` ${SITE} "Probeleme beim Kompilieren" >> ${LOGFILE} && exit 1
